@@ -1,0 +1,26 @@
+<html>
+<body><table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Chassis IP<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Port Number<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Test Bed<br /></strong></span></th>
+</tr>
+{% for temp in ixload_all_list %}
+{% for item in temp %}
+{% if forloop.first %}
+<tr>
+<td rowspan="{{item.3}}">{{item.0}}<br /></td>
+<td>{{item.1}}<br /></td>
+<td>{{item.2}}<br /></td>
+</tr>
+{% else  %}
+<tr>
+<td>{{item.1}}<br /></td>
+<td>{{item.2}}<br /></td>
+</tr>
+{% endif  %}
+{% endfor %}
+{% endfor %}
+</tbody>
+</table>
+<p> </p></body>
+</html>

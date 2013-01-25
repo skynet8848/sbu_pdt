@@ -1,0 +1,26 @@
+<html>
+<body><table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+<tr>
+<th colspan=9 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression {{testcase_latest_list.0.0}} Test Cases Status<br /></strong></span></th>
+</tr>
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testbed Mode<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testcase Number<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Executed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Passed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Failed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Execute Rate<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Pass Rate<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testbed Name<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Log Date<br /></strong></span></th>
+</tr>
+{% for temp in testcase_latest_list %}
+<tr>
+<td>{{temp.2}}<br /></td>
+<td>{{temp.4}}<br /></td>
+<td>{{temp.5}}<br /></td>
+<td>{{temp.6}}<br /></td>
+<td>{{temp.7}}<br /></td>
+<td>{{temp.8}}<br /></td>
+<td>{{temp.9}}<br /></td>
+<td>{{temp.1}}<br /></td>
+<td>{{temp.10}}<br /></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p> </p></body>
+</html>

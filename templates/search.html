@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+<style type="text/css">
+.f1{ background:#DDDDDD;}
+.f2{ background:#FFFFFF;}
+.f3{ background:#4169E1;}
+</style>
+    <title>Search{% if query %} Results{% endif %}</title>
+</head>
+<body>
+  <form action="." method="GET">
+  <table width="550px" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+						    	<tbody>
+						            <tr>
+						                <td width="200">
+						                    <input type="image" src="http://www.juniper.net/shared/img/header/logo-top-m.gif" alt="Juniper.net"
+						                        />
+						                </td>
+                                                                </tr>
+                                                            <tr/>
+                                                            <tr>
+						                <td nowrap="nowrap">
+    <input type="text" name="q" value="{{ query|escape }}"/>
+
+						                    <input  valign="top" type="submit" value="Search"/>
+						                </td>
+						            </tr>
+						        </tbody>
+						    </table>
+						</form>
+
+  {% if query %}
+    <h2>Results for "{{ query|escape }}":</h2>
+
+    {% if results %}
+      <div class="bf">
+      <table border = "0" celmargin = "5"  width="1200">
+      <tr class="b"><td>Index Number</td><td>Module Nmae</td><td>Capacity Number</td><td>Traffic Load</td><td>Session Number</td></tr>
+      <ul>
+      {% for module_name in results %}
+      <tr><td>{{ module_name.index_number|escape }}</td><td>{{ module_name.module_name|escape }}</td><td>{{ module_name.capacity_number|escape }}</td><td>{{ module_name.traffic_load|escape }}</td><td>{{ module_name.session_number|escape }}</td></tr>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No modules found</p>
+    {% endif %}
+  {% else %}
+      <div class="bf">
+      <table border = "0" celmargin = "5" width="1200">
+      <tr class="b"><td>Index Number</td><td>Module Nmae</td><td>Capacity Number</td><td>Traffic Load</td><td>Session Number</td></tr>
+      <ul>
+      {% for module_name in results_all %}
+      <tr><td>{{ module_name.index_number|escape }}</td><td>{{ module_name.module_name|escape }}</td><td>{{ module_name.capacity_number|escape }}</td><td>{{ module_name.traffic_load|escape }}</td><td>{{ module_name.session_number|escape }}</td></tr>
+      {% endfor %}
+      </ul>
+  {% endif %}
+</table>
+</div>
+<script type="text/javascript">
+    var bg=document.getElementsByTagName('tr');
+    for(var i=0,j=0;i<bg.length;i++)
+    {
+    if(bg[i].className!='b')
+    {    j++;
+    bg[i].className=j%2==0?'f1':'f2';
+    }
+    else
+    {bg[i].className='f3'}
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body><table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+<tr>
+<th colspan=9 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression Individual + QC72 + ISSU Test Cases Status<br /></strong></span></th>
+</tr>
+{% for temp in testcase_total_list %}
+<tr>
+<td>{{temp.2}}<br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_All/">{{temp.4}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_Executed/">{{temp.5}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_Passed/">{{temp.6}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_Failed/">{{temp.7}}</a><br /></td>
+<td>{{temp.8}}<br /></td>
+<td>{{temp.9}}<br /></td>
+<td>{{temp.10}}<br /></td>
+<td>{{temp.11}}<br /></td>
+
+</tr>
+{% endfor %}
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testbed Mode<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testcase Number<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Executed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Passed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Failed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Execute Rate<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Pass Rate(T)<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Pass Rate(E)<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Log Date<br /></strong></span></th>
+</tr>
+
+{% for temp in testcase_latest_list %}
+<tr>
+<td>{{temp.2}}<br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_All/">{{temp.4}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_Executed/">{{temp.5}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_Passed/">{{temp.6}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_Failed/">{{temp.7}}</a><br /></td>
+<td>{{temp.8}}<br /></td>
+<td>{{temp.9}}<br /></td>
+<td>{{temp.10}}<br /></td>
+<td>{{temp.11}}<br /></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p></p>
+<center>
+<a href="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/search_pr.html"><img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/state.png" width="600" height="320" /></a>
+<a href="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/search_pr.log"><img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/stackedbar_responsible.png" width="600" height="320" /></a>
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/closed_rate.png" width="1206" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/weekly_arrived.png" width="1206" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/total_trend.png" width="600" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/weekly_trend.png" width="600" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/category_all.png" width="1206" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/class.png" width="600" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/platform.png" width="600" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/attributes.png" width="600" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/blocker.png" width="600" height="320" />
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/problem_level.png" width="600" height="320" />  
+<img src="http://www-in.juniper.net/~ryanliu/{{version|escape}}_regression/category.png" width="600" height="320" />
+</center>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html><body>
+<form action="." method="POST">{%csrf_token%}
+<label for="id_Version_Number" class="required">Version Number:</label>
+                        
+<select name="Version_Number" id="id_Version_Number">
+{% for item in version_list %}
+<option value="{{item}}">{{item}}</option>
+{% endfor %}
+</select>
+<label for="id_Mode" class="required">Mode:</label>
+<select name="Mode" id="id_Mode">
+{% for item in mode_list %}
+<option value="{{item}}">{{item}}</option>
+{% endfor %}
+</select>
+<label for="id_Testbed_Number" class="required">Testbed:</label>
+<select name="Testbed_Number" id="id_Testbed_Number">
+{% for item in testbed_list %}
+<option value="{{item}}">{{item}}</option>
+{% endfor %}
+</select>
+<label for="id_Category" class="required">Category:</label>                        
+<select name="Category" id="id_Category">
+<option value="Individual" selected="selected">Individual</option>
+<option value="Individual+QC01">Individual+QC01</option>
+<option value="Individual+QC08">Individual+QC08</option>
+<option value="Individual+QC72+ISSU">Individual+QC72+ISSU</option>
+<option value="Individual+QC08+QC72+ISSU">Individual+QC08+QC72+ISSU</option>
+<option value="QC01">QC01</option>
+<option value="QC08">QC08</option>
+<option value="QC24">QC24</option>
+<option value="QC72">QC72</option>
+</select>
+<p><input type="submit" value="submit" /></p>
+</form>
+</body></html>

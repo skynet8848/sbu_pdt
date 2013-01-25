@@ -1,0 +1,29 @@
+<html>
+<body><table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+<tr>
+<th colspan={{colspan}} align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>SBU PDT {{version_number}} Regression Test Cases Coverage {{testbed_mode}} Mode Results <br /></strong></span></th>
+</tr>
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Test Bed<br /></strong></span></th>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Coverage(%)(Valid/Total)<br /></strong></span></th>
+{% for temp in capacity_list %}
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{temp}}<br /></strong></span></th>
+{% endfor %}
+</tr>
+{% for temp in list %}
+<tr>
+{% for item in temp %}
+<th align="center" style="background-color: #ffffff;" valign="middle"><span style="color: #6690bc;"><strong>{{item}}<br /></strong></span></th>
+{% endfor %}
+</tr>
+{% endfor %}
+<tr>
+{% for temp in total_coverage %}
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{temp}}<br /></strong></span></th>
+{% endfor %}
+</tr>
+</tbody>
+</table>
+<p> </p></body>
+</html>

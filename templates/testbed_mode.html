@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+<style type="text/css">
+.f1{ background:#DDDDDD;}
+.f2{ background:#FFFFFF;}
+.f3{ background:#4169E1;}
+</style>
+<title>PDT Moudle Capacity Sheet</title></head>
+<h3><b><p style="text-align: center;"><font color="#4169E1">PDT Moudle Capacity with Traffic and Sessions ({{testbed_number|escape}} {{testbed_mode|escape}} {{version_number|escape}})</font></p></b></h3>
+<hr>
+<div class="bf">
+<table border = "0" celmargin = "5" align="center" width="1200">
+<tr class="b"><th colspan="2">Module List</th><th colspan="3">{{results|escape}}</th></tr>
+<tr class="b"><td>No.</td><td>Module Name</td><td>Capacity Numbers</td><td>Traffic</td><td>Sessions</td></tr>
+{% for capacity in capacity_list %}
+<tr bgcolor = #FFFFFF><td>{{capacity.index_number|escape}}</td><td>{{capacity.module_name|escape}}</td><td>{{capacity.capacity_number|escape}}</td><td>{{capacity.traffic_load|escape}}</td><td>{{capacity.session_number|escape}}</td></tr>
+{% endfor %}
+<tr class="b"><td>No.</td><td>Module Name</td><td>Capacity Numbers</td><td>Traffic</td><td>Sessions</td></tr>
+</table>
+</div>
+<hr>
+<script type="text/javascript">
+    var bg=document.getElementsByTagName('tr');
+    for(var i=0,j=0;i<bg.length;i++)
+    {
+    if(bg[i].className!='b')
+    {    j++;
+    bg[i].className=j%2==0?'f1':'f2';
+    }
+    else
+    {bg[i].className='f3'}
+    }
+    </script>
+</body></html>

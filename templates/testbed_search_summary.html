@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+<style type="text/css">
+.f1{ background:#DDDDDD;}
+.f2{ background:#FFFFFF;}
+.f3{ background:#4169E1;}
+</style>
+    <title>Search{% if query %} Results{% endif %}</title>
+</head>
+<body>
+  <form action="." method="GET">
+  <table width="550px" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width="200">
+                                                                    <input type="image" src="http://www.juniper.net/shared/img/header/logo-top-m.gif" alt="Juniper.net"
+                                                                        />
+                                                                </td>
+                                                                </tr>
+                                                            <tr/>
+                                                            <tr>
+                                                                <td nowrap="nowrap">
+    <input type="text" name="q" value="{{ query|escape }}"/>
+                                                                    
+                                                                    <input  valign="top" type="submit" value="Search"/>
+                                                                    <input type="checkbox" name="check_box_list" value="Testbed_Number">Testbed Number</input>
+                                                                    <input type="checkbox" name="check_box_list" value="Testbed_Name" >Testbed Name</input>
+                                                                    <input type="checkbox" name="check_box_list" value="Testbed_Owner">Testbed Owner</input>
+                                                                    <input type="checkbox" name="check_box_list" value="Testbed_Purpose">Testbed Purpose</input>
+                                                                    <input type="checkbox" name="check_box_list" value="Platform">Platform</input>
+                                                               </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+
+  {% if query %}
+    <h3><font color="#4169E1">{{results_len|escape}} results ({{results_all_len|escape}} total) for "{{ query|escape }}" in the column "{{ option|escape }}":</font></h3>
+    {% if results %}
+      <div class="bf">
+      <table border = "0" celmargin = "5" width="1200">
+      <tr class="b"><td>Testbed Number</td><td>Testbed Name</td><td>Testbed Owner</td><td>Platform</td><td>Testbed Location</td><td>Testbed Purpose</td><td>Testbed Version</td><td>Control Information</td></tr>
+      <ul>
+      {% for module_name in results %}
+      <tr><td><a href="http://{{ module_name.Testbed_Location|escape }}/{{ module_name.Testbed_Number|escape }}">{{ module_name.Testbed_Number|escape }}</a></td><td><a href="http://www-in/~ryanliu/{{ module_name.Testbed_Number|escape }}">{{ module_name.Testbed_Name|escape }}</a></td><td>{{ module_name.Testbed_Owner|escape }}</td><td>{{ module_name.Platform|escape }}</td><td>{{ module_name.get_Testbed_Location_display|escape }}</td><td>{{ module_name.Testbed_Purpose|escape }}</td><td>{{ module_name.Testbed_Version|escape }}</td><td>{{ module_name.Control_Information|escape }}</td></tr>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% else %}
+    <h3><font color="#4169E1">Total {{results_all_len|escape}} items in the Database:</font></h3>
+      <div class="bf">
+      <table border = "0" celmargin = "5" width="1200">
+      <tr class="b"><td>Testbed Number</td><td>Testbed Name</td><td>Testbed Owner</td><td>Platform</td><td>Testbed Location</td><td>Testbed Purpose</td><td>Testbed Version</td><td>Control Information</td></tr>
+      <ul>
+      {% for module_name in results_all %}
+      <tr><td><a href="http://{{ module_name.Testbed_Location|escape }}/{{ module_name.Testbed_Number|escape }}">{{ module_name.Testbed_Number|escape }}</a></td><td><a href="http://www-in/~ryanliu/{{ module_name.Testbed_Number|escape }}">{{ module_name.Testbed_Name|escape }}</a></td><td>{{ module_name.Testbed_Owner|escape }}</td><td>{{ module_name.Platform|escape }}</td><td>{{ module_name.get_Testbed_Location_display|escape }}</td><td>{{ module_name.Testbed_Purpose|escape }}</td><td>{{ module_name.Testbed_Version|escape }}</td><td>{{ module_name.Control_Information|escape }}</td></tr>
+      {% endfor %}
+      </ul>
+  {% endif %}
+</table>
+</div>
+<script type="text/javascript">
+    var bg=document.getElementsByTagName('tr');
+    for(var i=0,j=0;i<bg.length;i++)
+    {
+    if(bg[i].className!='b')
+    {    j++;
+    bg[i].className=j%2==0?'f1':'f2';
+    }
+    else
+    {bg[i].className='f3'}
+    }
+    </script>
+</body>
+</html>

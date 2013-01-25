@@ -1,0 +1,30 @@
+<html>
+<body><table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+{% if mode %}
+<tr>
+<th colspan=7 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression {{version}} Test Cases {{result}} Results ({{testbed_number}} in {{mode}} Mode)<br /></strong></span></th>
+</tr>
+{% else %}
+<tr>
+<th colspan=7 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression {{version}} Test Cases {{result}} Results<br /></strong></span></th>
+</tr>
+{% endif %}
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Module<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Category<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Weight<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Execution<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Result<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Blocker PRs<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Comments<br /></strong></span></th>
+</tr>
+{% for temp in testcase_list %}
+<tr>
+<td><a href="http://10.208.85.107:8080/module/?q={{temp.Index}}&check_box_list=index_number">{{temp.Module}}</a><br /></td>
+<td>{{temp.Category}}<br /></td>
+<td>{{temp.Weight}}<br /></td>
+<td>{{temp.Execution}}<br /></td>
+<td>{{temp.Result}}<br /></td>
+<td>{{temp.Blocker_PRs}}<br /></td>
+<td>{{temp.Comments}}<br /></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p> </p></body>
+</html>

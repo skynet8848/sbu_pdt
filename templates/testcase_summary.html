@@ -1,0 +1,51 @@
+<html>
+<body><table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+<tr>
+<th colspan=13 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression {{testcase_latest_list.0.0}} Test Cases Status<br /></strong></span></th>
+</tr>
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testbed Mode<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testcase Number<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Executed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Passed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Failed<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Execute Rate<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Pass Rate(T)<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Pass Rate(E)<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testbed Name<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Testbed Owner<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Log Date<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Blocker PRs<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Comments<br /></strong></span></th>
+</tr>
+{% for temp in testcase_latest_list %}
+<tr>
+<td>{{temp.2}}<br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_All/">{{temp.4}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_Executed/">{{temp.5}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_Passed/">{{temp.6}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{temp.12}}_{{temp.2}}_{{temp.3}}_{{temp.0}}_Failed/">{{temp.7}}</a><br /></td>
+<td>{{temp.8}}<br /></td>
+<td>{{temp.9}}<br /></td>
+<td>{{temp.10}}<br /></td>
+<td>{{temp.1}}<br /></td>
+<td><a href="http://www-int.jnpr.net/directory/Detail.asp?uid={{temp.15}}">{{temp.15}}</a><br /></td>
+<td>{{temp.11}}<br /></td>
+<td>
+{% for number in temp.13 %}
+<a href="https://gnats.juniper.net/web/default/{{number}}-1">PR-{{number}}</a>
+{% endfor %}
+<br /></td>
+<td>{{temp.14}}<br /></td>
+</tr>
+{% endfor %}
+{% for temp in testcase_total_list %}
+<tr>
+<td>{{temp.2}}<br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_All/">{{temp.4}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_Executed/">{{temp.5}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_Passed/">{{temp.6}}</a><br /></td>
+<td><a href="http://10.208.85.107:8080/result/{{testcase_latest_list.0.3}}_{{testcase_latest_list.0.0}}_Failed/">{{temp.7}}</a><br /></td>
+<td>{{temp.8}}<br /></td>
+<td>{{temp.9}}<br /></td>
+<td>{{temp.10}}<br /></td>
+<td>{{temp.1}}<br /></td>
+<td>{{temp.15}}<br /></td>
+<td>{{temp.11}}<br /></td>
+<td>{{temp.13}}<br /></td>
+<td>{{temp.14}}<br /></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p> </p></body>
+</html>

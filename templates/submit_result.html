@@ -1,0 +1,42 @@
+<html>
+<body>
+<form action="/message/" method="POST">{%csrf_token%}
+<table border="1" cellpadding="3" cellspacing="0" class="jiveBorder" style="width: 100%; border: 1px solid #000000;">
+<tbody>
+{% if mode %}
+<tr>
+<th colspan=9 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression {{version}} Test Cases {{result}} Results ({{testbed_number}} in {{mode}} Mode)<br /></strong></span></th>
+</tr>
+{% else %}
+<tr>
+<th colspan=9 align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>{{testcase_latest_list.0.3}} SBU PDT Regression {{version}} Test Cases {{result}} Results<br /></strong></span></th>
+</tr>
+{% endif %}
+<tr>
+<th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Module<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Category<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Weight<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Execution<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Result<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Blocker PRs<br /></strong></span></th><th align="center" style="background-color: #6690bc;" valign="middle"><span style="color: #ffffff;"><strong>Comments<br /></strong></span></th>
+</tr>
+{% for temp in testcase_list %}
+<tr>
+<td><a href="http://10.208.85.107:8080/module/?q={{temp.Index}}&check_box_list=index_number">{{temp.Module}}</a><br /></td>
+<td>{{temp.Category}}<br /></td>
+<td>{{temp.Weight}}<br /></td>
+{% ifequal temp.Execution 0 %}
+<td><select name="{{temp.Module}}_execution" id="id_Execution"><option value="0" selected="selected">0</option><option value="{{temp.Weight}}">{{temp.Weight}}</option></select><br /></td>
+{% else %}
+<td><select name="{{temp.Module}}_execution" id="id_Execution"><option value="0">0</option><option value="{{temp.Weight}}" selected="selected">{{temp.Weight}}</option></select><br /></td>
+{% endifequal %}
+{% ifequal temp.Result 0 %}
+<td><select name="{{temp.Module}}_result" id="id_Result"><option value="0" selected="selected">0</option><option value="{{temp.Weight}}">{{temp.Weight}}</option></select><br /></td>
+{% else %}
+<td><select name="{{temp.Module}}_result" id="id_Result"><option value="0">0</option><option value="{{temp.Weight}}" selected="selected">{{temp.Weight}}</option></select><br /></td>
+{% endifequal %}
+<td><textarea rows="1" cols="20" name="{{temp.Module}}_blocker" value="{{temp.Blocker_PRs}}" id="id_Blocker_PRs" />{{temp.Blocker_PRs}}</textarea><br /></td>
+<td><textarea rows="1" cols="20" name="{{temp.Module}}_comments" value="{{temp.Comments}}" id="id_Comments" />{{temp.Comments}}</textarea><br /></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p><input type="submit" value="submit" /></p>
+</form>
+<p> </p></body>
+</html>
